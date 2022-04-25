@@ -1,3 +1,6 @@
+<?php
+require 'functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -144,7 +147,7 @@
         <?php
         if (isset($_GET["tab"])) {
             $file = $_GET["tab"];
-            require "$file.html";
+            require "$file.php";
         } else {
             require "menu.html";
         }
