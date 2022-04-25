@@ -1,8 +1,12 @@
 <h1>Tambah Pasien</h1>
+<?php
+    $norm = query("select norm from pasien");
+    $norm = getLastId($norm, 'norm');
+?>
 <form action="" method="post">
     <div class="form-group">
       <label for="noRM">No Rekam Medis</label>
-      <input type="text" class="form-control" name="noRM" required>
+      <input type="text" class="form-control" name="noRM" value="RM<?= $norm ?>" required readonly>
     </div>
     <div class="form-group">
       <label for="nama_pasien">Nama Pasien</label>
@@ -31,6 +35,10 @@
         </select>
     </div>
     <div class="form-group">
+      <label for="alamat">Alamat</label>
+      <input type="text" class="form-control" name="alamat" required>
+    </div>
+    <div class="form-group">
         <label for="telepon">Telepon</label>
         <div class="row">
             <div class="col-1">
@@ -41,5 +49,24 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary" style="width: 100px">Submit</button>
+    <button type="submit" name="submit" class="btn btn-primary" style="width: 100px">Submit</button>
 </form>
+<?php
+    if(isset($_POST['submit'])){
+        $norm = $_POST['noRM'];
+        $nama = $_POST['nama_pasien'];
+        $jenis_kelamin = $_POST['jenis_kelamin'];
+        $tgl_lahir = $_POST['tanggal_lahir'];
+        $agama = $_POST['agama'];
+        $alamat = $_POST['alamat'];
+        $telepon = $_POST['telepon'];
+
+        $query_insert = "insert into pasien values('$norm', '$nama', '$jenis_kelamin', '$tgl_lahir', '$agama', '$alamat', '+62$telepon')";
+        if(mysqli_query($conn, $query_insert)){
+            echo "<script>alert('Berhasil Menambahkan')</script>";
+            echo "<script>location.href='dashboard.php?tab=pasien'</script>";
+        } else {
+            echo "<script>alert('Gagal Menambahkan')</script>";
+        }
+    }
+?>

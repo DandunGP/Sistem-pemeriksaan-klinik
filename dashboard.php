@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 
+<?php require "functions.php"; ?>
+
 <body class="d-flex">
     <section id="navbar" class="bg-primary bg-opacity-25 p-3">
         <a href="dashboard.php">
@@ -144,7 +146,7 @@
         <?php
         if (isset($_GET["tab"])) {
             $file = $_GET["tab"];
-            require "$file.html";
+            require "$file.php";
         } else {
             require "menu.html";
         }

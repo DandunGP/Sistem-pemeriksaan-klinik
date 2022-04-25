@@ -12,6 +12,18 @@ function query($query)
     return $rows;
 }
 
+function getLastId($data, $key){
+    $akhir = $data[count($data)-1][$key];
+    $akhir = substr($akhir, -3, 3)+1;
+    $panjang = strlen($akhir);
+    if($panjang == 1){
+        $akhir = '00'.$akhir;
+    } elseif ($panjang == 2){
+        $akhir = '0'.$akhir;
+    }    
+    return $akhir;
+}
+
 function tambah($data)
 {
     global $conn;
