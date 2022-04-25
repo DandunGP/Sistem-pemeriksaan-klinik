@@ -82,17 +82,6 @@ if ($_SESSION['status_user'] != 'admin') {
             </div>
             <div class="nav-list py-2">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
-                    <i class="fa-solid fa-book-medical" style="font-size:15px; color: white"></i>
-                    <p class="text-white fw-bold m-0 pl-3">Pemeriksaan</p>
-                    <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
-                </div>
-                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
-                    <a href="dashboard.php?tab=formPemeriksaan" class="menu-dropdown d-block">Daftar</a>
-                    <a href="dashboard.php?tab=pemeriksaan" class="menu-dropdown d-block">Cek</a>
-                </div>
-            </div>
-            <div class="nav-list py-2">
-                <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-address-card" style="font-size:15px; color: white"></i>
                     <p class="text-white fw-bold m-0 pl-3">Pendaftaran</p>
                     <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
@@ -100,6 +89,17 @@ if ($_SESSION['status_user'] != 'admin') {
                 <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
                     <a href="dashboard.php?tab=formPendaftaran" class="menu-dropdown d-block">Daftar</a>
                     <a href="dashboard.php?tab=pendaftaran" class="menu-dropdown d-block">Cek</a>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-book-medical" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Pemeriksaan</p>
+                    <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
+                </div>
+                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
+                    <a href="dashboard.php?tab=formPemeriksaan" class="menu-dropdown d-block">Daftar</a>
+                    <a href="dashboard.php?tab=pemeriksaan" class="menu-dropdown d-block">Cek</a>
                 </div>
             </div>
             <div class="nav-list py-2">

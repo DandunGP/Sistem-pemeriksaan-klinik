@@ -19,7 +19,7 @@ $noreg = getLastId($noreg, 'noreg');
             $query = "select * from pasien";
             $data = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($data)) {
-                echo "<option value='$row[norm]'>$row[norm]</option>";
+                echo "<option value='$row[norm]'>$row[norm]--$row[nama]</option>";
             }
             ?>
         </select>
@@ -31,7 +31,7 @@ $noreg = getLastId($noreg, 'noreg');
             $query = "select * from dokter";
             $data = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($data)) {
-                echo "<option value='$row[kode_dokter]'>$row[kode_dokter]</option>";
+                echo "<option value='$row[kode_dokter]'>$row[kode_dokter]--$row[nama_dokter]</option>";
             }
             ?>
         </select>
@@ -43,7 +43,7 @@ $noreg = getLastId($noreg, 'noreg');
             $query = "select * from pembayaran";
             $data = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($data)) {
-                echo "<option value='$row[kd_bayar]'>$row[kd_bayar]</option>";
+                echo "<option value='$row[kd_bayar]'>$row[kd_bayar] -- $row[nm_bayar]</option>";
             }
             ?>
         </select>
@@ -55,7 +55,7 @@ $noreg = getLastId($noreg, 'noreg');
             $query = "select * from poliklinik";
             $data = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($data)) {
-                echo "<option value='$row[kd_poli]'>$row[kd_poli]</option>";
+                echo "<option value='$row[kd_poli]'>$row[kd_poli] -- $row[nm_poli]</option>";
             }
             ?>
         </select>

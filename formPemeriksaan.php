@@ -31,7 +31,7 @@ $noper = getLastId($noper, 'no_per');
             $query = "select * from pasien";
             $data = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($data)) {
-                echo "<option value='$row[norm]'>$row[norm] - $row[nama]</option>";
+                echo "<option value='$row[norm]'>$row[norm] -- $row[nama]</option>";
             }
             ?>
         </select>
@@ -43,7 +43,7 @@ $noper = getLastId($noper, 'no_per');
             $query = "select * from dokter";
             $data = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($data)) {
-                echo "<option value='$row[kode_dokter]'>$row[kode_dokter] - $row[nama_dokter]</option>";
+                echo "<option value='$row[kode_dokter]'>$row[kode_dokter] -- $row[nama_dokter]</option>";
             }
             ?>
         </select>
