@@ -149,7 +149,7 @@ require 'functions.php';
             $file = $_GET["tab"];
             require "$file.php";
         } else {
-            require "menu.html";
+            require "menu.php";
         }
         ?>
     </section>

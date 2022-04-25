@@ -1,6 +1,31 @@
 <?php
 $conn = mysqli_connect('localhost', 'root', '', 'klinik');
 
+$query1 = mysqli_query($conn, "select count(*) from pasien");
+$pasien = mysqli_fetch_array($query1);
+
+$query2 = mysqli_query($conn, "select count(*) from dokter");
+$dokter = mysqli_fetch_array($query2);
+
+$query3 = mysqli_query($conn, "select count(*) from poliklinik");
+$poliklinik = mysqli_fetch_array($query3);
+
+$query4 = mysqli_query($conn, "select count(*) from pemeriksaan");
+$pemeriksaan = mysqli_fetch_array($query4);
+
+$query5 = mysqli_query($conn, "select count(*) from pembayaran");
+$pembayaran = mysqli_fetch_array($query5);
+
+$query6 = mysqli_query($conn, "select count(*) FROM pendaftaran");
+$pendaftaran = mysqli_fetch_array($query6);
+
+$dataPasien = $pasien[0];
+$dataDokter = $dokter[0];
+$dataPoli = $poliklinik[0];
+$dataPemeriksaan = $pemeriksaan[0];
+$dataPembayaran = $pembayaran[0];
+$dataPendaftaran = $pendaftaran[0];
+
 function query($query)
 {
     global $conn;
