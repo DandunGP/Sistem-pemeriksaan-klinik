@@ -15,23 +15,27 @@
       <th scope="col">Keterangan</th>
     </tr>
   </thead>
+  <?php
+    $data_pasien = query("select * from pasien")
+  ?>
   <tbody>
+    <?php foreach ($data_pasien as $pasien): ?>
     <tr>
-      <td class="center">RM001</td>
-      <td>Herman</td>
-      <td>Laki-Laki</td>
-      <td>20/12/2002</td>
-      <td>Islam x Kristen</td>
-      <td>Adoh pokok e</td>
-      <td>0888888</td>
+      <td><?= $pasien['norm'] ?></td>
+      <td><?= $pasien['nama'] ?></td>
+      <td><?= $pasien['jenis_kelamin'] ?></td>
+      <td><?= $pasien['tgl_lahir'] ?></td>
+      <td><?= $pasien['agama'] ?></td>
+      <td><?= $pasien['alamat'] ?></td>
+      <td><?= $pasien['telepon'] ?></td>
       <td>
-        <a href="dashboard.php?tab=editPasien" class="btn btn-success pl-3 py-0"><i
+        <a href="dashboard.php?tab=editPasien&norm=<?= $pasien['norm'] ?>" class="btn btn-success pl-3 py-0"><i
             class="fa-solid fa-pen pr-2"></i>Edit</a>
-        <a href="#" class="btn btn-danger pl-3 py-0"
+        <a href="dashboard.php?tab=deletePasien&norm=<?= $pasien['norm'] ?>" class="btn btn-danger pl-3 py-0"
           onclick="return confirm('Are you sure you want to delete this item?');"><i
             class="fa-solid fa-trash pr-2"></i>Delete</a>
       </td>
     </tr>
-
+    <?php endforeach; ?>
   </tbody>
 </table>

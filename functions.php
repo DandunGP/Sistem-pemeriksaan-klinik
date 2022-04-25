@@ -12,6 +12,19 @@ function query($query)
     return $rows;
 }
 
+function getLastId($data, $key)
+{
+    $akhir = $data[count($data) - 1][$key];
+    $akhir = substr($akhir, -3, 3) + 1;
+    $panjang = strlen($akhir);
+    if ($panjang == 1) {
+        $akhir = '00' . $akhir;
+    } elseif ($panjang == 2) {
+        $akhir = '0' . $akhir;
+    }
+    return $akhir;
+}
+
 function tambahPoli($data)
 {
     global $conn;
@@ -76,6 +89,16 @@ function hapusPoli($id)
     return mysqli_affected_rows($conn);
 }
 
+function hapusPemeriksaan($id)
+{
+    global $conn;
+
+    $query_delete = "delete from pemeriksaan where no_per = '$id' ";
+    mysqli_query($conn, $query_delete);
+
+    return mysqli_affected_rows($conn);
+}
+
 function hapusPendaftaran($id)
 {
     global $conn;
@@ -93,8 +116,8 @@ function editPoli($data)
     $kdpoli = htmlspecialchars($data['kode_poli']);
     $nmpoli = htmlspecialchars($data['nama_poli']);
 
-    $query_insert = "update poliklinik set kd_poli = '$kdpoli', nm_poli = '$nmpoli' where kd_poli = '$kdpoli' ";
-    mysqli_query($conn, $query_insert);
+    $query_edit = "update poliklinik set kd_poli = '$kdpoli', nm_poli = '$nmpoli' where kd_poli = '$kdpoli' ";
+    mysqli_query($conn, $query_edit);
 
     return mysqli_affected_rows($conn);
 }
@@ -149,17 +172,4 @@ function cari($keyword)
             email like '%$keyword%'
             ";
     return query($query);
-}
-
-function getLastId($data, $key)
-{
-    $akhir = $data[count($data) - 1][$key];
-    $akhir = substr($akhir, -3, 3) + 1;
-    $panjang = strlen($akhir);
-    if ($panjang == 1) {
-        $akhir = '00' . $akhir;
-    } elseif ($panjang == 2) {
-        $akhir = '0' . $akhir;
-    }
-    return $akhir;
 }

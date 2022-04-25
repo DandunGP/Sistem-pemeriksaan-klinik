@@ -20,7 +20,7 @@ $pol = query("select * from poliklinik where kd_poli= '$id' ")[0];
 
 <?php
 if (isset($_POST['submit'])) {
-    if (editPoli($_POST) > 0) {
+    if (editPoli($_POST)) {
         echo "
             <script>
                 alert('Poliklinik berhasil diedit');
