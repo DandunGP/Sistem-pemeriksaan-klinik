@@ -43,15 +43,7 @@
 </form>
 <?php
     if(isset($_POST['edit'])){
-        $kode_dokter = $_POST['kode_dokter'];
-        $nama_dokter = $_POST['nama_dokter'];
-        $alamat_dokter = $_POST['alamat_dokter'];
-        $spesialis = $_POST['spesialis'];
-        $username = $_POST['username'];
-
-        $query_edit = "update dokter set nama_dokter='$nama_dokter', alamat_dokter='$alamat_dokter', spesialis='$spesialis', username='$username' where kode_dokter='$kode_dokter'";
-        var_dump($query_edit);
-        if(mysqli_query($conn, $query_edit)){
+        if(editDokter()){
             echo "<script>alert('Berhasil Megedit')</script>";
             echo "<script>location.href='dashboard.php?tab=dokter'</script>";
         } else {

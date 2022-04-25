@@ -35,13 +35,27 @@ if ($_SESSION['status_user'] != 'admin') {
         <div class="nav-menu">
             <div class="nav-list py-2">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-shield-halved" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Admin</p>
+                    <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
+                </div>
+                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
+                    <a href="dashboard.php?tab=formUser" class="menu-dropdown d-block">Daftar User</a>
+                    <a href="dashboard.php?tab=user" class="menu-dropdown d-block">Cek User</a>
+                    <a href="logout.php" class="menu-dropdown d-block">Log Out</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-menu">
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-user" style="font-size:15px; color: white"></i>
                     <p class="text-white fw-bold m-0 pl-3">Pasien</p>
                     <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
                 </div>
                 <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
-                    <a href="#" class="menu-dropdown d-block">Daftar</a>
-                    <a href="#" class="menu-dropdown d-block">Cek</a>
+                    <a href="dashboard.php?tab=formPasien" class="menu-dropdown d-block">Daftar</a>
+                    <a href="dashboard.php?tab=pasien" class="menu-dropdown d-block">Cek</a>
                 </div>
             </div>
             <div class="nav-list py-2">
@@ -51,8 +65,8 @@ if ($_SESSION['status_user'] != 'admin') {
                     <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
                 </div>
                 <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
-                    <a href="#" class="menu-dropdown d-block">Daftar</a>
-                    <a href="#" class="menu-dropdown d-block">Cek</a>
+                    <a href="dashboard.php?tab=formDokter" class="menu-dropdown d-block">Daftar</a>
+                    <a href="dashboard.php?tab=dokter" class="menu-dropdown d-block">Cek</a>
                 </div>
             </div>
             <div class="nav-list py-2">
@@ -62,8 +76,8 @@ if ($_SESSION['status_user'] != 'admin') {
                     <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
                 </div>
                 <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
-                    <a href="#" class="menu-dropdown d-block">Daftar</a>
-                    <a href="#" class="menu-dropdown d-block">Cek</a>
+                    <a href="dashboard.php?tab=formPoli" class="menu-dropdown d-block">Daftar</a>
+                    <a href="dashboard.php?tab=poliklinik" class="menu-dropdown d-block">Cek</a>
                 </div>
             </div>
             <div class="nav-list py-2">
@@ -73,8 +87,19 @@ if ($_SESSION['status_user'] != 'admin') {
                     <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
                 </div>
                 <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
-                    <a href="#" class="menu-dropdown d-block">Daftar</a>
-                    <a href="#" class="menu-dropdown d-block">Cek</a>
+                    <a href="dashboard.php?tab=formPemeriksaan" class="menu-dropdown d-block">Daftar</a>
+                    <a href="dashboard.php?tab=pemeriksaan" class="menu-dropdown d-block">Cek</a>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-address-card" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Pendaftaran</p>
+                    <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
+                </div>
+                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
+                    <a href="dashboard.php?tab=formPendaftaran" class="menu-dropdown d-block">Daftar</a>
+                    <a href="dashboard.php?tab=pendaftaran" class="menu-dropdown d-block">Cek</a>
                 </div>
             </div>
             <div class="nav-list py-2">
@@ -84,8 +109,8 @@ if ($_SESSION['status_user'] != 'admin') {
                     <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
                 </div>
                 <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
-                    <a href="#" class="menu-dropdown d-block">Daftar</a>
-                    <a href="#" class="menu-dropdown d-block">Cek</a>
+                    <a href="dashboard.php?tab=formBayar" class="menu-dropdown d-block">Daftar</a>
+                    <a href="dashboard.php?tab=bayar" class="menu-dropdown d-block">Cek</a>
                 </div>
             </div>
         </div>

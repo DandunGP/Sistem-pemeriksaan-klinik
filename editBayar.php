@@ -20,12 +20,7 @@
 </form>
 <?php
     if(isset($_POST['edit'])){
-        $kd_bayar = $_POST['noBayar'];
-        $nm_bayar = $_POST['nama_bayar'];
-
-        $query_edit = "update pembayaran set nm_bayar='$nm_bayar' where kd_bayar='$kd_bayar'";
-        var_dump($query_edit);
-        if(mysqli_query($conn, $query_edit)){
+        if(editBayar()){
             echo "<script>alert('Berhasil Megedit')</script>";
             echo "<script>location.href='dashboard.php?tab=bayar'</script>";
         } else {

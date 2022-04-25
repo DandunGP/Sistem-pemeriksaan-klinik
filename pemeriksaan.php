@@ -21,7 +21,7 @@
   </thead>
   <tbody>
     <?php
-    $query = "select * from pemeriksaan";
+    $query = "select pemeriksaan.*, dokter.* from pemeriksaan join dokter on pemeriksaan.kode_dokter = dokter.kode_dokter";
     $data = mysqli_query($conn, $query);
     while ($row = mysqli_fetch_array($data)) {
     ?>
@@ -30,7 +30,7 @@
         <td><?= $row['tgl_per'] ?></td>
         <td><?= $row['noreg'] ?></td>
         <td><?= $row['norm'] ?></td>
-        <td><?= $row['kode_dokter'] ?></td>
+        <td><?= $row['nama_dokter'] ?></td>
         <td><?= $row['anamnesa'] ?></td>
         <td><?= $row['tb'] ?></td>
         <td><?= $row['bb'] ?></td>

@@ -107,17 +107,7 @@
 </form>
 <?php
     if(isset($_POST['edit'])){
-        $norm = $_POST['noRM'];
-        $nama = $_POST['nama_pasien'];
-        $jenis_kelamin = $_POST['jenis_kelamin'];
-        $tgl_lahir = $_POST['tanggal_lahir'];
-        $agama = $_POST['agama'];
-        $alamat = $_POST['alamat'];
-        $telepon = $_POST['telepon'];
-
-        $query_edit = "update pasien set nama='$nama', jenis_kelamin='$jenis_kelamin', tgl_lahir='$tgl_lahir', agama='$agama', alamat='$alamat', telepon='+62$telepon' where norm='$norm'";
-        var_dump($query_edit);
-        if(mysqli_query($conn, $query_edit)){
+        if(editPasien()){
             echo "<script>alert('Berhasil Megedit')</script>";
             echo "<script>location.href='dashboard.php?tab=pasien'</script>";
         } else {

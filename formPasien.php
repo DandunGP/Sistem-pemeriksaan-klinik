@@ -53,16 +53,7 @@ $norm = getLastId($norm, 'norm');
 </form>
 <?php
 if (isset($_POST['submit'])) {
-    $norm = $_POST['noRM'];
-    $nama = $_POST['nama_pasien'];
-    $jenis_kelamin = $_POST['jenis_kelamin'];
-    $tgl_lahir = $_POST['tanggal_lahir'];
-    $agama = $_POST['agama'];
-    $alamat = $_POST['alamat'];
-    $telepon = $_POST['telepon'];
-
-    $query_insert = "insert into pasien values('$norm', '$nama', '$jenis_kelamin', '$tgl_lahir', '$agama', '$alamat', '+62$telepon')";
-    if (mysqli_query($conn, $query_insert)) {
+    if (tambahPasien()) {
         echo "<script>alert('Berhasil Menambahkan')</script>";
         echo "<script>location.href='dashboard.php?tab=pasien'</script>";
     } else {
