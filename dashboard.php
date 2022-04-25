@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,15 +9,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style/style.css">
 </head>
+
 <body class="d-flex">
     <section id="navbar" class="bg-primary bg-opacity-25 p-3">
-        <a href="/dahsboard.php">
-        <div class="nav-menu d-flex align-items-center justify-content-center pb-3">
-            <div class="logo-image d-flex align-items-center justify-content-center" style="width:40px; height:40px;">
-                <i class="fa-solid fa-hospital" style="font-size:30px; color: white"></i>
+        <a href="dashboard.php">
+            <div class="nav-menu d-flex align-items-center justify-content-center pb-3">
+                <div class="logo-image d-flex align-items-center justify-content-center" style="width:40px; height:40px;">
+                    <i class="fa-solid fa-hospital" style="font-size:30px; color: white"></i>
+                </div>
+                <p class="text-white fw-bold m-0 pl-3" style="font-size:20px">Klinik Pertama Kedua</p>
             </div>
-            <p class="text-white fw-bold m-0 pl-3" style="font-size:20px">Klinik Pertama Kedua</p>
-        </div>
         </a>
         <div class="nav-menu">
             <div class="nav-list py-2">
@@ -139,21 +141,22 @@
         </div>
     </section>
     <section id="content" class="py-5 px-5 position-relative">
-        <?php 
-            if(isset($_GET["tab"])){
-                $file = $_GET["tab"];
-                require "$file.html";
-            } else {
-                require "menu.html";
-            }
+        <?php
+        if (isset($_GET["tab"])) {
+            $file = $_GET["tab"];
+            require "$file.html";
+        } else {
+            require "menu.html";
+        }
         ?>
     </section>
     <script src="https://kit.fontawesome.com/1f83e5d847.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        $(".nav-list").on("click", function(){
+        $(".nav-list").on("click", function() {
             $(this).find(".nav-item-dropdown").toggleClass("hide");
         })
     </script>
 </body>
+
 </html>
