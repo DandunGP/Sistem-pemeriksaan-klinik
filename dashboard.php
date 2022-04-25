@@ -153,6 +153,20 @@ require 'functions.php';
                 </div>
             </div>
         </div>
+        <div class="nav-menu">
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-shield-halved" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Admin</p>
+                    <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
+                </div>
+                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
+                    <a href="dashboard.php?tab=formPasien" class="menu-dropdown d-block">Daftar User</a>
+                    <a href="dashboard.php?tab=pasien" class="menu-dropdown d-block">Cek User</a>
+                    <a href="dashboard.php?tab=pasien" class="menu-dropdown d-block">Log Out</a>
+                </div>
+            </div>
+        </div>
     </section>
     <section id="content" class="py-5 px-5 position-relative">
         <?php
