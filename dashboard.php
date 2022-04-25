@@ -1,5 +1,14 @@
 <?php
 require 'functions.php';
+session_start();
+
+if ($_SESSION['status_user'] != 'admin') {
+    echo "
+        <script>
+            window.location='logout.php'
+        </script>
+    ";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
