@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="d-flex">
+    <section id="navbar" class="bg-primary bg-opacity-25 p-3">
+        <div class="nav-menu d-flex align-items-center justify-content-center pb-3">
+            <div class="logo-image d-flex align-items-center justify-content-center" style="width:40px; height:40px;">
+                <i class="fa-solid fa-hospital" style="font-size:30px; color: white"></i>
+            </div>
+            <p class="text-white fw-bold m-0 pl-3" style="font-size:20px">Klinik Pertama Kedua</p>
+        </div>
+        <div class="nav-menu">
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-user" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Pasien</p>
+                    <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
+                </div>
+                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
+                    <a href="#" class="menu-dropdown d-block">Daftar</a>
+                    <a href="#" class="menu-dropdown d-block">Cek</a>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-user-doctor" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Dokter</p>
+                    <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
+                </div>
+                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
+                    <a href="#" class="menu-dropdown d-block">Daftar</a>
+                    <a href="#" class="menu-dropdown d-block">Cek</a>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-hospital-user" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Poliklinik</p>
+                    <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
+                </div>
+                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2">
+                    <a href="#" class="menu-dropdown d-block">Daftar</a>
+                    <a href="#" class="menu-dropdown d-block">Cek</a>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-book-medical" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Pemeriksaan</p>
+                    <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
+                </div>
+                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
+                    <a href="#" class="menu-dropdown d-block">Daftar</a>
+                    <a href="#" class="menu-dropdown d-block">Cek</a>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-comment-dollar" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Bayar</p>
+                    <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
+                </div>
+                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
+                    <a href="#" class="menu-dropdown d-block">Daftar</a>
+                    <a href="#" class="menu-dropdown d-block">Cek</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-menu">
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Lap. Data Pasien</p>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Lap. Data Jadwal Pelayanan</p>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Lap. Data Dokter</p>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Lap. Cara Bayar</p>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Lap. Data Poliklinik</p>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Lap. Kunjungan Pasien Baru</p>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Lap. Kunjungan Pasien Lama</p>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Lap. Kujungan Per-Umur</p>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Lap. Kunjungan Per-Jenis Kelamin</p>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Lap. Kunjungan Per-Wilayah</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="content" class="py-5 px-5 position-relative">
+        <h1>Dashboard Admin</h1>
+        <div class="menu-content d-flex flex-wrap justify-content-between py-5">
+            <a href="#" class="text-decoration-none py-3">
+                <div class="item-content bg-white pl-3 d-flex flex-column justify-content-center position-relative">
+                    <h3 class="m-0 p-0 text-primary">Pasien</h3>
+                    <p class="m-0 p-0 text-black">0</p>
+                    <i class="fa-solid fa-user position-absolute logo-content"></i>
+                </div>
+            </a>
+            <a href="#" class="text-decoration-none py-3">
+                <div class="item-content bg-white text-success pl-3 d-flex flex-column justify-content-center position-relative">
+                    <h3 class="m-0 p-0 text-success">Dokter</h3>
+                    <p class="m-0 p-0 text-black">0</p>
+                    <i class="fa-solid fa-user-doctor position-absolute logo-content"></i>
+                </div>
+            </a>
+            <a href="#" class="text-decoration-none py-3">
+                <div class="item-content bg-white text-warning pl-3 d-flex flex-column justify-content-center position-relative">
+                    <h3 class="m-0 p-0 text-warning">Poliklinik</h3>
+                    <p class="m-0 p-0 text-black">0</p>
+                    <i class="fa-solid fa-hospital-user position-absolute logo-content"></i>
+                </div>
+            </a>
+            <a href="#" class="text-decoration-none py-3">
+                <div class="item-content bg-white text-info pl-3 d-flex flex-column justify-content-center position-relative">
+                    <h3 class="m-0 p-0 text-info">Pemeriksaan</h3>
+                    <p class="m-0 p-0 text-black">0</p>
+                    <i class="fa-solid fa-book-medical position-absolute logo-content"></i>
+                </div>
+            </a>
+            <a href="#" class="text-decoration-none py-3">
+                <div class="item-content bg-white text-danger pl-3 d-flex flex-column justify-content-center position-relative">
+                    <h3 class="m-0 p-0 text-danger">Bayar</h3>
+                    <p class="m-0 p-0 text-black">0</p>
+                    <i class="fa-solid fa-comment-dollar position-absolute logo-content"></i>
+                </div>
+            </a>
+        </div>
+        <div class="nav-login">
+            
+        </div>
+    </section>
+    <script src="https://kit.fontawesome.com/1f83e5d847.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(".nav-list").on("click", function(){
+            $(this).find(".nav-item-dropdown").toggleClass("hide");
+        })
+    </script>
+</body>
+</html>
