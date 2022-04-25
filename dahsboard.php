@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body class="d-flex">
     <section id="navbar" class="bg-primary bg-opacity-25 p-3">
+        <a href="/dahsboard.php">
         <div class="nav-menu d-flex align-items-center justify-content-center pb-3">
             <div class="logo-image d-flex align-items-center justify-content-center" style="width:40px; height:40px;">
                 <i class="fa-solid fa-hospital" style="font-size:30px; color: white"></i>
             </div>
             <p class="text-white fw-bold m-0 pl-3" style="font-size:20px">Klinik Pertama Kedua</p>
         </div>
+        </a>
         <div class="nav-menu">
             <div class="nav-list py-2">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
@@ -137,47 +139,14 @@
         </div>
     </section>
     <section id="content" class="py-5 px-5 position-relative">
-        <h1>Dashboard Admin</h1>
-        <div class="menu-content d-flex flex-wrap justify-content-between py-5">
-            <a href="#" class="text-decoration-none py-3">
-                <div class="item-content bg-white pl-3 d-flex flex-column justify-content-center position-relative">
-                    <h3 class="m-0 p-0 text-primary">Pasien</h3>
-                    <p class="m-0 p-0 text-black">0</p>
-                    <i class="fa-solid fa-user position-absolute logo-content"></i>
-                </div>
-            </a>
-            <a href="#" class="text-decoration-none py-3">
-                <div class="item-content bg-white text-success pl-3 d-flex flex-column justify-content-center position-relative">
-                    <h3 class="m-0 p-0 text-success">Dokter</h3>
-                    <p class="m-0 p-0 text-black">0</p>
-                    <i class="fa-solid fa-user-doctor position-absolute logo-content"></i>
-                </div>
-            </a>
-            <a href="#" class="text-decoration-none py-3">
-                <div class="item-content bg-white text-warning pl-3 d-flex flex-column justify-content-center position-relative">
-                    <h3 class="m-0 p-0 text-warning">Poliklinik</h3>
-                    <p class="m-0 p-0 text-black">0</p>
-                    <i class="fa-solid fa-hospital-user position-absolute logo-content"></i>
-                </div>
-            </a>
-            <a href="#" class="text-decoration-none py-3">
-                <div class="item-content bg-white text-info pl-3 d-flex flex-column justify-content-center position-relative">
-                    <h3 class="m-0 p-0 text-info">Pemeriksaan</h3>
-                    <p class="m-0 p-0 text-black">0</p>
-                    <i class="fa-solid fa-book-medical position-absolute logo-content"></i>
-                </div>
-            </a>
-            <a href="#" class="text-decoration-none py-3">
-                <div class="item-content bg-white text-danger pl-3 d-flex flex-column justify-content-center position-relative">
-                    <h3 class="m-0 p-0 text-danger">Bayar</h3>
-                    <p class="m-0 p-0 text-black">0</p>
-                    <i class="fa-solid fa-comment-dollar position-absolute logo-content"></i>
-                </div>
-            </a>
-        </div>
-        <div class="nav-login">
-            
-        </div>
+        <?php 
+            if(isset($_GET["tab"])){
+                $file = $_GET["tab"];
+                require "$file.html";
+            } else {
+                require "menu.html";
+            }
+        ?>
     </section>
     <script src="https://kit.fontawesome.com/1f83e5d847.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
