@@ -49,7 +49,7 @@
                     <p class="text-white fw-bold m-0 pl-3">Poliklinik</p>
                     <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
                 </div>
-                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2">
+                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
                     <a href="#" class="menu-dropdown d-block">Daftar</a>
                     <a href="#" class="menu-dropdown d-block">Cek</a>
                 </div>

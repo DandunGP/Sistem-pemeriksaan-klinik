@@ -44,7 +44,7 @@
 
 #content{
     background-color:rgb(224, 224, 224);
-    width: 100%;
+    width: 1500px;
     height: 100vh;
     overflow: auto;
 }
@@ -54,7 +54,8 @@
 }
 
 .menu-content{
-    border-bottom: 1px solid rgba(255, 255, 255, 0.8)
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    /* width : 1000px; */
 }
 
 .item-content{
