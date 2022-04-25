@@ -1,0 +1,40 @@
+<h1>Edit Pendaftaran</h1>
+<form action="" method="post">
+    <div class="form-group">
+        <label for="noreg">No Registrasi</label>
+        <input type="text" class="form-control" value="{{  }}" name="noreg" required>
+    </div>
+    <div class="form-group">
+        <label for="tgl_reg">Tanggal Registrasi</label>
+        <input type="date" class="form-control" name="tgl_reg" required>
+    </div>
+    <div class="form-group">
+        <label for="norm">No Rekam Medis</label>
+        <select name="norm" class="form-control">
+            <option value="RM001">RM001</option>
+            <option value="RM002">RM002</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="kode_dokter">Kode Dokter</label>
+        <select name="kode_dokter" class="form-control">
+            <option value="DR001">DR001</option>
+            <option value="DR002">DR002</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="kode_bayar">Kode Bayar</label>
+        <select name="kode_bayar" class="form-control">
+            <option value="BYR001">BYR001</option>
+            <option value="BYR002">BYR002</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="kode_poli">Kode Poliklinik</label>
+        <select name="kode_poli" class="form-control">
+            <option value="POL001">POL001</option>
+            <option value="POL002">POL002</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary" style="width: 100px">Submit</button>
+</form>
