@@ -50,6 +50,47 @@ function getLastId($data, $key)
     return $akhir;
 }
 
+function tambahPasien(){
+    global $conn;
+    $norm = $_POST['noRM'];
+    $nama = $_POST['nama_pasien'];
+    $jenis_kelamin = $_POST['jenis_kelamin'];
+    $tgl_lahir = $_POST['tanggal_lahir'];
+    $agama = $_POST['agama'];
+    $alamat = $_POST['alamat'];
+    $telepon = $_POST['telepon'];
+
+    $query_insert = "insert into pasien values('$norm', '$nama', '$jenis_kelamin', '$tgl_lahir', '$agama', '$alamat', '+62$telepon')";
+    $hasil = mysqli_query($conn, $query_insert);
+    return $hasil;
+}
+
+function tambahDokter(){
+    global $conn;
+
+    $kode_dokter = $_POST['kode_dokter'];
+    $nama_dokter = $_POST['nama_dokter'];
+    $alamat_dokter = $_POST['alamat_dokter'];
+    $spesialis = $_POST['spesialis'];
+    $username = $_POST['username'];
+
+    $query_insert = "insert into dokter values('$kode_dokter', '$nama_dokter', '$alamat_dokter', '$spesialis', '$username')";
+    $hasil = mysqli_query($conn, $query_insert);
+    return $hasil;
+}
+
+function tambahBayar(){
+    global $conn;
+
+    $kd_bayar = $_POST['noBayar'];
+    $nm_bayar = $_POST['nama_bayar'];
+
+    $query_insert = "insert into pembayaran values('$kd_bayar', '$nm_bayar')";
+    $hasil = mysqli_query($conn, $query_insert);
+
+    return $hasil;
+}
+
 function tambahPoli($data)
 {
     global $conn;
@@ -104,6 +145,33 @@ function tambahPemeriksaan($data)
     return mysqli_affected_rows($conn);
 }
 
+function hapusPasien($id){
+    global $conn;
+
+    $query_delete = "delete from pasien where norm='$id'";
+    $hasil = mysqli_query($conn, $query_delete);
+
+    return $hasil;
+}
+
+function hapusDokter($id){
+    global $conn;
+
+    $query_delete = "delete dokter pasien where kode_dokter='$id'";
+    $hasil = mysqli_query($conn, $query_delete);
+
+    return $hasil;
+}
+
+function hapusBayar($id){
+    global $conn;
+
+    $query_delete = "delete from pembayaran where kd_bayar='$id'";
+    $hasil = mysqli_query($conn, $query_delete);
+
+    return $hasil;
+}
+
 function hapusPoli($id)
 {
     global $conn;
@@ -132,6 +200,60 @@ function hapusPendaftaran($id)
     mysqli_query($conn, $query_delete);
 
     return mysqli_affected_rows($conn);
+}
+
+function editPasien(){
+    global $conn;
+
+    $norm = $_POST['noRM'];
+    $nama = $_POST['nama_pasien'];
+    $jenis_kelamin = $_POST['jenis_kelamin'];
+    $tgl_lahir = $_POST['tanggal_lahir'];
+    $agama = $_POST['agama'];
+    $alamat = $_POST['alamat'];
+    $telepon = $_POST['telepon'];
+
+    $query_edit = "update pasien set nama='$nama', jenis_kelamin='$jenis_kelamin', tgl_lahir='$tgl_lahir', agama='$agama', alamat='$alamat', telepon='+62$telepon' where norm='$norm'";
+
+    $hasil = mysqli_query($conn, $query_edit);
+
+    return $hasil;
+}
+
+function editDokter(){
+    global $conn;
+
+    $norm = $_POST['noRM'];
+    $nama = $_POST['nama_pasien'];
+    $jenis_kelamin = $_POST['jenis_kelamin'];
+    $tgl_lahir = $_POST['tanggal_lahir'];
+    $agama = $_POST['agama'];
+    $alamat = $_POST['alamat'];
+    $telepon = $_POST['telepon'];
+
+    $query_edit = "update pasien set nama='$nama', jenis_kelamin='$jenis_kelamin', tgl_lahir='$tgl_lahir', agama='$agama', alamat='$alamat', telepon='+62$telepon' where norm='$norm'";
+
+    $hasil = mysqli_query($conn, $query_edit);
+
+    return $hasil;
+}
+
+function editBayar(){
+    global $conn;
+
+    $norm = $_POST['noRM'];
+    $nama = $_POST['nama_pasien'];
+    $jenis_kelamin = $_POST['jenis_kelamin'];
+    $tgl_lahir = $_POST['tanggal_lahir'];
+    $agama = $_POST['agama'];
+    $alamat = $_POST['alamat'];
+    $telepon = $_POST['telepon'];
+
+    $query_edit = "update pasien set nama='$nama', jenis_kelamin='$jenis_kelamin', tgl_lahir='$tgl_lahir', agama='$agama', alamat='$alamat', telepon='+62$telepon' where norm='$norm'";
+
+    $hasil = mysqli_query($conn, $query_edit);
+
+    return $hasil;
 }
 
 function editPoli($data)

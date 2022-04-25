@@ -16,11 +16,7 @@
 </form>
 <?php
     if(isset($_POST['submit'])){
-        $kd_bayar = $_POST['noBayar'];
-        $nm_bayar = $_POST['nama_bayar'];
-
-        $query_insert = "insert into pembayaran values('$kd_bayar', '$nm_bayar')";
-        if(mysqli_query($conn, $query_insert)){
+        if(tambahBayar()){
             echo "<script>alert('Berhasil Menambahkan')</script>";
             echo "<script>location.href='dashboard.php?tab=bayar'</script>";
         } else {
