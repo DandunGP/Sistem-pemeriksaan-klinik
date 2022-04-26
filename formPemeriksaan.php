@@ -19,7 +19,11 @@ $noper = getLastId($noper, 'no_per');
             $query = "select * from pendaftaran";
             $data = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($data)) {
-                echo "<option value='$row[noreg]'>$row[noreg]</option>";
+                $noreg = $row['noreg'];
+                $cek = query("select * from pemeriksaan where noreg='$noreg'");
+                if($cek == NULL){
+                    echo "<option value='$row[noreg]'>$row[noreg]</option>";
+                }
             }
             ?>
         </select>

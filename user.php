@@ -12,7 +12,7 @@
     </thead>
     <tbody>
         <?php
-        $query = "select * from user";
+        $query = "select * from user where not type_user='admin'";
         $data = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($data)) {
         ?>

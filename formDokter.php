@@ -26,7 +26,14 @@
         <label for="username">username</label>
         <select name="username" class="form-control">
             <?php foreach($username as $user): ?>
-                <option value="<?= $user['username'] ?>"><?= $user['username'] ?></option>
+                <?php
+                    $username = $user['username'];
+                    $query = "select * from dokter where username='$username'";
+                    $cek = query("select * from dokter where username='$username'");
+                ?>
+                <?php if($cek == NULL): ?>
+                    <option value="<?= $username ?>"><?= $username ?></option>
+                <?php endif; ?>
             <?php endforeach; ?>         
         </select>
     </div>

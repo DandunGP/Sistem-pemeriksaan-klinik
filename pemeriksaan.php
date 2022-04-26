@@ -6,7 +6,7 @@
       <th scope="col">NO Pemeriksaan</th>
       <th scope="col">Tanggal Pemeriksaan</th>
       <th scope="col">No Register</th>
-      <th scope="col">NO Rekam Medis</th>
+      <th scope="col">Pasien</th>
       <th scope="col">Dokter</th>
       <th scope="col">Anamnesa</th>
       <th scope="col">Tinggi Badan</th>
@@ -21,7 +21,7 @@
   </thead>
   <tbody>
     <?php
-    $query = "select pemeriksaan.*, dokter.* from pemeriksaan join dokter on pemeriksaan.kode_dokter = dokter.kode_dokter";
+    $query = "select pemeriksaan.*, pasien.*, dokter.* from pemeriksaan join pasien on pasien.norm=pemeriksaan.norm join dokter on pemeriksaan.kode_dokter = dokter.kode_dokter";
     $data = mysqli_query($conn, $query);
     while ($row = mysqli_fetch_array($data)) {
     ?>
@@ -29,7 +29,7 @@
         <td class="center"><?= $row['no_per'] ?></td>
         <td><?= $row['tgl_per'] ?></td>
         <td><?= $row['noreg'] ?></td>
-        <td><?= $row['norm'] ?></td>
+        <td><?= $row['nama'] ?></td>
         <td><?= $row['nama_dokter'] ?></td>
         <td><?= $row['anamnesa'] ?></td>
         <td><?= $row['tb'] ?></td>
