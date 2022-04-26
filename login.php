@@ -28,7 +28,7 @@ if (isset($_POST['login'])) {
             $_SESSION['id'] = $row['username'];
             echo "
                         <script>
-                            window.location='user/index.php';
+                            window.location='dashboard.php';
                         </script>
                         ";
         }

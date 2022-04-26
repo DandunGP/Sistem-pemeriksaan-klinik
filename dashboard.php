@@ -2,7 +2,7 @@
 require 'functions.php';
 session_start();
 
-if ($_SESSION['status_user'] != 'admin') {
+if (!$_SESSION['status_login']) {
     echo "
         <script>
             window.location='logout.php'
@@ -36,16 +36,19 @@ if ($_SESSION['status_user'] != 'admin') {
             <div class="nav-list py-2">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-shield-halved" style="font-size:15px; color: white"></i>
-                    <p class="text-white fw-bold m-0 pl-3">Admin</p>
+                    <p class="text-white fw-bold m-0 pl-3"><?= $_SESSION['status_user'] ?></p>
                     <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
                 </div>
                 <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
+                    <?php if($_SESSION['status_user'] == 'admin'): ?>
                     <a href="dashboard.php?tab=formUser" class="menu-dropdown d-block">Daftar User</a>
+                    <?php endif; ?>
                     <a href="dashboard.php?tab=user" class="menu-dropdown d-block">Cek User</a>
                     <a href="logout.php" class="menu-dropdown d-block">Log Out</a>
                 </div>
             </div>
         </div>
+        <?php if($_SESSION['status_user'] == 'admin'): ?>
         <div class="nav-menu">
             <div class="nav-list py-2">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
@@ -114,6 +117,7 @@ if ($_SESSION['status_user'] != 'admin') {
                 </div>
             </div>
         </div>
+        <?php endif; ?>
         <div class="nav-menu">
             <div class="nav-list py-2">
                 <a href="dashboard.php?tab=lapPasien" class="text-decoration-none">
@@ -168,6 +172,14 @@ if ($_SESSION['status_user'] != 'admin') {
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
                     <p class="text-white fw-bold m-0 pl-3">Lap. Kunjungan Pasien Lama</p>
+                </div>
+                </a>
+            </div>
+            <div class="nav-list py-2">
+                <a href="dashboard.php?tab=lapKunjunganBulan" class="text-decoration-none">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Lap. Kunjungan Per-Bulan</p>
                 </div>
                 </a>
             </div>
