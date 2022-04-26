@@ -156,16 +156,20 @@ if ($_SESSION['status_user'] != 'admin') {
                 </a>
             </div>
             <div class="nav-list py-2">
+                <a href="dashboard.php?tab=lapKunjunganBaru" class="text-decoration-none">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
                     <p class="text-white fw-bold m-0 pl-3">Lap. Kunjungan Pasien Baru</p>
                 </div>
+                </a>
             </div>
             <div class="nav-list py-2">
+                <a href="dashboard.php?tab=lapKunjunganLama" class="text-decoration-none">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
                     <p class="text-white fw-bold m-0 pl-3">Lap. Kunjungan Pasien Lama</p>
                 </div>
+                </a>
             </div>
             <div class="nav-list py-2">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
