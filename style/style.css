@@ -75,3 +75,14 @@
     right: 10%;
     font-size: 40px;
 }
+
+.page{
+    background-color: white;
+    left: 0;
+}
+
+.page-item{
+    width: 30px !important;
+    height: 30px !important;
+    border: 1px solid black;
+}

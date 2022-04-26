@@ -116,34 +116,44 @@ if ($_SESSION['status_user'] != 'admin') {
         </div>
         <div class="nav-menu">
             <div class="nav-list py-2">
+                <a href="dashboard.php?tab=lapPasien" class="text-decoration-none">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
                     <p class="text-white fw-bold m-0 pl-3">Lap. Data Pasien</p>
                 </div>
+                </a>
             </div>
             <div class="nav-list py-2">
+                <a href="dashboard.php?tab=lapJadwal" class="text-decoration-none">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
                     <p class="text-white fw-bold m-0 pl-3">Lap. Data Jadwal Pelayanan</p>
                 </div>
+                </a>
             </div>
             <div class="nav-list py-2">
+                <a href="dashboard.php?tab=lapDokter" class="text-decoration-none">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
                     <p class="text-white fw-bold m-0 pl-3">Lap. Data Dokter</p>
                 </div>
+                </a>
             </div>
             <div class="nav-list py-2">
+                <a href="dashboard.php?tab=lapBayar" class="text-decoration-none">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
                     <p class="text-white fw-bold m-0 pl-3">Lap. Cara Bayar</p>
                 </div>
+                </a>
             </div>
             <div class="nav-list py-2">
+                <a href="dashboard.php?tab=lapPoliklinik" class="text-decoration-none">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
                     <p class="text-white fw-bold m-0 pl-3">Lap. Data Poliklinik</p>
                 </div>
+                </a>
             </div>
             <div class="nav-list py-2">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
