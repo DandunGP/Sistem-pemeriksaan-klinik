@@ -26,6 +26,13 @@ $dataPemeriksaan = $pemeriksaan[0];
 $dataPembayaran = $pembayaran[0];
 $dataPendaftaran = $pendaftaran[0];
 
+function rupiah($angka){
+	
+	$hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+	return $hasil_rupiah;
+ 
+}
+
 function query($query)
 {
     global $conn;
@@ -130,9 +137,10 @@ function tambahPendaftaran($data)
     $norm = htmlspecialchars($data['norm']);
     $kodeDok = htmlspecialchars($data['kode_dokter']);
     $kdbayar = htmlspecialchars($data['kode_bayar']);
+    $nominal = htmlspecialchars($data['nominal']);
     $kdpoli = htmlspecialchars($data['kode_poli']);
 
-    $query_insert = "insert into pendaftaran values ('$noreg', '$tgl', '$norm', '$kodeDok', '$kdbayar', '$kdpoli')";
+    $query_insert = "insert into pendaftaran values ('$noreg', '$tgl', '$norm', '$kodeDok', '$kdbayar', '$nominal', '$kdpoli')";
     mysqli_query($conn, $query_insert);
 
     return mysqli_affected_rows($conn);

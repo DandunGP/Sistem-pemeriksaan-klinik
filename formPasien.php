@@ -1,12 +1,11 @@
 <h1>Tambah Pasien</h1>
 <?php
 $norm = query("select norm from pasien");
-$norm = getLastId($norm, 'norm');
 ?>
 <form action="" method="post">
     <div class="form-group">
         <label for="noRM">No Rekam Medis</label>
-        <input type="text" class="form-control" name="noRM" value="RM<?= $norm ?>" required readonly>
+        <input type="number" class="form-control" name="noRM" value="" maxlength="12" minlength="12" required>
     </div>
     <div class="form-group">
         <label for="nama_pasien">Nama Pasien</label>

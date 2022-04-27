@@ -24,7 +24,13 @@
                 <td><?= $row['tgl_reg'] ?></td>
                 <td><?= $row['nama'] ?></td>
                 <td><?= $row['nama_dokter'] ?></td>
-                <td><?= $row['nm_bayar'] ?></td>
+                <td><?php 
+                if($jadwal['kd_bayar']=='B000'){
+                    echo rupiah($jadwal['nominal']);
+                } else {
+                    echo $jadwal['nm_bayar'];
+                }
+                ?></td>
                 <td><?= $row['nm_poli'] ?></td>
                 <td>
                     <a href="dashboard.php?tab=editPendaftaran&id=<?= $row['noreg'] ?>" class="btn btn-success pl-3 py-0"><i class="fa-solid fa-pen pr-2"></i>Edit</a>

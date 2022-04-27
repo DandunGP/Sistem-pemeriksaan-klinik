@@ -29,7 +29,7 @@ if (!$_SESSION['status_login']) {
                 <div class="logo-image d-flex align-items-center justify-content-center" style="width:40px; height:40px;">
                     <i class="fa-solid fa-hospital" style="font-size:30px; color: white"></i>
                 </div>
-                <p class="text-white fw-bold m-0 pl-3" style="font-size:20px">Klinik Pertama Kedua</p>
+                <p class="text-white fw-bold m-0 pl-3" style="font-size:20px">Klinik Pratama</p>
             </div>
         </a>
         <div class="nav-menu">
@@ -184,26 +184,37 @@ if (!$_SESSION['status_login']) {
                 </a>
             </div>
             <div class="nav-list py-2">
+                <a href="dashboard.php?tab=lapKunjunganUmur" class="text-decoration-none">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
                     <p class="text-white fw-bold m-0 pl-3">Lap. Kujungan Per-Umur</p>
                 </div>
+                </a>
             </div>
             <div class="nav-list py-2">
+                <a href="dashboard.php?tab=lapKunjunganGender" class="text-decoration-none">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
                     <p class="text-white fw-bold m-0 pl-3">Lap. Kunjungan Per-Jenis Kelamin</p>
                 </div>
+            </a>
             </div>
             <div class="nav-list py-2">
+                <a href="dashboard.php?tab=lapKunjunganWilayah" class="text-decoration-none">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-book" style="font-size:15px; color: white"></i>
                     <p class="text-white fw-bold m-0 pl-3">Lap. Kunjungan Per-Wilayah</p>
                 </div>
+                </a>
             </div>
         </div>
     </section>
     <section id="content" class="py-5 px-5 position-relative">
+        <div class="content-logo mb-3 text-center border border-dark border-top-0 border-left-0 border-right-0">
+            <h1>Klinik Pratama</h1>
+            <h1>dr. ARIEF WAHYU SOEKARNO</h1>
+            <p>Jl. Ciu No 2, Telukan, Grogol, Sukoharjo, Telp. 082225155873</p>
+        </div>
         <?php
         if (isset($_GET["tab"])) {
             $file = $_GET["tab"];

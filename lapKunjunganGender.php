@@ -1,18 +1,14 @@
-<h1>Tabel Jadwal Pelayanan</h1>
+<h1>Laporan Per Umur</h1>
     <form id="formTanggal" action="" method="post" class="float-right">
-    <?php
-        $data_tanggal = query("select tgl_reg from pendaftaran group by tgl_reg");
-    ?>
     <div class="">
-        <label for="tanggal">Tanggal</label>
-        <select name="tanggal" class="ml-3">
-            <option class="submitTanggal" value="all">Semua</option>
-            <?php foreach ($data_tanggal as $tgl): ?>
-            <option class="submitTanggal" value="<?= $tgl['tgl_reg'] ?>" onclick=""><?= $tgl['tgl_reg'] ?></option>
-            <?php endforeach; ?>
+        <label for="gender">Umur</label>
+        <select name="gender" class="ml-3">
+            <option class="submitGender" value="all">Semua</option>
+            <option class="submitGender" value="Laki-laki">Laki-Laki</option>
+            <option class="submitGender" value="Perempuan">Perempuan</option>
         </select>
         <br>
-        <input type="submit" name="submitTanggal" class="btn btn-primary w-100" value="Cek" >
+        <input type="submit" name="submitGender" class="btn btn-primary w-100" value="Cek" >
     </div>
     </form>
 <table class="table table-striped">
@@ -32,12 +28,19 @@
     } else {
         $page = 0;
     }
-    if(isset($_POST['submitTanggal'])){
-        $tanggal = $_POST['tanggal'];
-        if($tanggal == 'all'){
+    if(isset($_POST['submitGender'])){
+        $gender = $_POST['gender'];
+        if($gender == 'all'){
             $data_jadwal = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli order by tgl_reg desc limit 10 offset $page");
         } else {
-            $data_jadwal = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli where tgl_reg='$tanggal'limit 10 offset $page");
+            $data_gender = query("SELECT norm FROM pasien where jenis_kelamin='$gender'");
+            $list_gender = "";
+            foreach ($data_gender as $norm) {
+                $list_gender = "{$list_gender}{$norm['norm']},";
+            }
+            $list_gender = substr($list_gender, 0, strlen($list_gender)-1);
+
+            $data_jadwal = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli where pendaftaran.norm in ($list_gender)");
         }
     } else {
         $data_jadwal = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli order by tgl_reg desc");
@@ -48,7 +51,7 @@
     <tr>
         <td><?= $jadwal['noreg'] ?></td>
         <td><?= $jadwal['tgl_reg'] ?></td>
-        <td><?= $jadwal['nama'] ?></td>
+        <td><?= "{$jadwal['norm']} -- {$jadwal['nama']}" ?></td>
         <td><?= $jadwal['nama_dokter'] ?></td>
         <td><?php 
             if($jadwal['kd_bayar']=='B000'){

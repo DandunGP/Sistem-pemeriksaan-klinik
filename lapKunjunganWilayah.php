@@ -1,18 +1,18 @@
-<h1>Tabel Jadwal Pelayanan</h1>
+<h1>Laporan Per Wilayah</h1>
     <form id="formTanggal" action="" method="post" class="float-right">
     <?php
-        $data_tanggal = query("select tgl_reg from pendaftaran group by tgl_reg");
+        $data_wilayah = query("SELECT alamat FROM pasien group by alamat");
     ?>
     <div class="">
-        <label for="tanggal">Tanggal</label>
-        <select name="tanggal" class="ml-3">
-            <option class="submitTanggal" value="all">Semua</option>
-            <?php foreach ($data_tanggal as $tgl): ?>
-            <option class="submitTanggal" value="<?= $tgl['tgl_reg'] ?>" onclick=""><?= $tgl['tgl_reg'] ?></option>
+        <label for="wilayah">Wilayah</label>
+        <select name="wilayah" class="ml-3">
+            <option class="submitWilayah" value="all">Semua</option>
+            <?php foreach ($data_wilayah as $wilayah): ?>
+            <option class="submitWilayah" value="<?= $wilayah['alamat'] ?>" onclick=""><?= $wilayah['alamat'] ?></option>
             <?php endforeach; ?>
         </select>
         <br>
-        <input type="submit" name="submitTanggal" class="btn btn-primary w-100" value="Cek" >
+        <input type="submit" name="submitWilayah" class="btn btn-primary w-100" value="Cek" >
     </div>
     </form>
 <table class="table table-striped">
@@ -32,15 +32,22 @@
     } else {
         $page = 0;
     }
-    if(isset($_POST['submitTanggal'])){
-        $tanggal = $_POST['tanggal'];
-        if($tanggal == 'all'){
+    if(isset($_POST['submitWilayah'])){
+        $wilayah = $_POST['wilayah'];
+        if($wilayah == 'all'){
             $data_jadwal = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli order by tgl_reg desc limit 10 offset $page");
         } else {
-            $data_jadwal = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli where tgl_reg='$tanggal'limit 10 offset $page");
+            $data_wilayah = query("SELECT alamat FROM pasien where alamat='$wilayah'");
+            $list_wilayah = "";
+            foreach ($data_wilayah as $alamat) {
+                $list_wilayah = "{$list_wilayah}'{$alamat['alamat']}',";
+            }
+            $list_wilayah = substr($list_wilayah, 0, strlen($list_wilayah)-1);
+
+            $data_jadwal = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli where pasien.alamat in ($list_wilayah)");
         }
     } else {
-        $data_jadwal = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli order by tgl_reg desc");
+        $data_jadwal = query("select *, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli order by tgl_reg desc");
     }
   ?>
   <tbody>

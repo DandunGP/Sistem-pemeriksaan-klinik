@@ -49,6 +49,10 @@ $noreg = getLastId($noreg, 'noreg');
         </select>
     </div>
     <div class="form-group">
+        <label for="nominal">No Registrasi</label>
+        <input type="number" class="form-control" name="nominal" placeholder="ketik '0' Jika BPJS" required>
+    </div>
+    <div class="form-group">
         <label for="kode_poli">Kode Poliklinik</label>
         <select name="kode_poli" class="form-control">
             <?php

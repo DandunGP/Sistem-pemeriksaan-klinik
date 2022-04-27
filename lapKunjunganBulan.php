@@ -51,7 +51,13 @@
         <td><?= $jadwal['tgl_reg'] ?></td>
         <td><?= $jadwal['nama'] ?></td>
         <td><?= $jadwal['nama_dokter'] ?></td>
-        <td><?= $jadwal['nm_bayar'] ?></td>
+        <td><?php 
+            if($jadwal['kd_bayar']=='B000'){
+                echo rupiah($jadwal['nominal']);
+            } else {
+                echo $jadwal['nm_bayar'];
+            }
+        ?></td>
         <td><?= $jadwal['nm_poli'] ?></td>
     </tr>
     <?php endforeach; ?>
