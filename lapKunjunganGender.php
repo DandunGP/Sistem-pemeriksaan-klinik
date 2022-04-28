@@ -1,4 +1,4 @@
-<h1>Laporan Per Umur</h1>
+<h1>Laporan Per Gender</h1>
     <form id="formTanggal" action="" method="post" class="float-right">
     <div class="">
         <label for="gender">Umur</label>
@@ -38,9 +38,13 @@
             foreach ($data_gender as $norm) {
                 $list_gender = "{$list_gender}{$norm['norm']},";
             }
-            $list_gender = substr($list_gender, 0, strlen($list_gender)-1);
+            if($list_gender != null){
+                $list_gender = substr($list_gender, 0, strlen($list_gender)-1);
 
-            $data_jadwal = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli where pendaftaran.norm in ($list_gender)");
+                $data_jadwal = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli where pendaftaran.norm in ($list_gender)");
+            } else {
+                $data_jadwal = array();
+            }
         }
     } else {
         $data_jadwal = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli order by tgl_reg desc");

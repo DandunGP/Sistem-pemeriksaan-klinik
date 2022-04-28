@@ -1,13 +1,23 @@
-<h1>Tabel Kunjungan Baru</h1>
+<h1>Tabel Kunjungan Lama</h1>
     <form id="formTanggal" action="" method="post" class="float-right">
     <?php
         $data_tanggal = query("select tgl_reg from pendaftaran group by tgl_reg");
+        $selected = '';
+        $tanggal = '';
+        if(isset($_POST['submitTanggal'])){
+            $tanggal = $_POST['submitTanggal'];
+            $selected = 'selected';
+        }
     ?>
     <div class="">
         <label for="tanggal">Tanggal</label>
         <select name="tanggal" class="ml-3">
             <?php foreach ($data_tanggal as $tgl): ?>
-            <option class="submitTanggal" value="<?= $tgl['tgl_reg'] ?>" onclick=""><?= $tgl['tgl_reg'] ?></option>
+            <option class="submitTanggal" value="<?= $tgl['tgl_reg'] ?>" 
+            <?php if($tanggal == $tgl['tgl_reg']): ?>
+                selected
+            <?php endif; ?>
+            ><?= $tgl['tgl_reg'] ?></option>
             <?php endforeach; ?>
         </select>
         <br>
@@ -48,7 +58,7 @@
                 $pasienBaru = "'$pasienBaru$baru',";
             }
             $pasienBaru = substr($pasienBaru, 0, strlen($pasienBaru)-1);
-            $data_baru = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli where pendaftaran.norm in ($pasienBaru)");
+            $data_baru = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli where pendaftaran.norm in ($pasienBaru) and tgl_reg='$tanggal'");
         } else {
             $data_baru = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli where noreg=''");
         }
@@ -64,10 +74,10 @@
         <td><?= $baru['nama'] ?></td>
         <td><?= $baru['nama_dokter'] ?></td>
         <td><?php 
-            if($jadwal['kd_bayar']=='B000'){
-                echo rupiah($jadwal['nominal']);
+            if($baru['kd_bayar']=='B000'){
+                echo rupiah($baru['nominal']);
             } else {
-                echo $jadwal['nm_bayar'];
+                echo $baru['nm_bayar'];
             }
         ?></td>
         <td><?= $baru['nm_poli'] ?></td>

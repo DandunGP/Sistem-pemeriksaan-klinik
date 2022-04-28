@@ -317,8 +317,9 @@ function editPoli($data)
 
     $kdpoli = htmlspecialchars($data['kode_poli']);
     $nmpoli = htmlspecialchars($data['nama_poli']);
+    $kddokter = htmlspecialchars($data['kode_dokter']);
 
-    $query_edit = "update poliklinik set kd_poli = '$kdpoli', nm_poli = '$nmpoli' where kd_poli = '$kdpoli' ";
+    $query_edit = "update poliklinik set kd_poli = '$kdpoli', nm_poli = '$nmpoli', kode_dokter='$kddokter' where kd_poli = '$kdpoli' ";
     mysqli_query($conn, $query_edit);
 
     return mysqli_affected_rows($conn);

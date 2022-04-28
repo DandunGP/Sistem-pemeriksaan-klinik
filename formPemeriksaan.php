@@ -1,4 +1,4 @@
-<h1>Tambah Pasien</h1>
+<h1>Tambah Pemeriksaan</h1>
 <?php
 $noper = query("select no_per from pemeriksaan");
 $noper = getLastId($noper, 'no_per');
@@ -44,10 +44,10 @@ $noper = getLastId($noper, 'no_per');
         <label for="no_dokter">Dokter</label>
         <select name="no_dokter" class="form-control">
             <?php
-            $query = "select * from dokter";
+            $query = "select poliklinik.*, dokter.* from dokter join poliklinik on poliklinik.kode_dokter=dokter.kode_dokter";
             $data = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($data)) {
-                echo "<option value='$row[kode_dokter]'>$row[kode_dokter] -- $row[nama_dokter]</option>";
+                echo "<option value='$row[kode_dokter]'>$row[nama_dokter] -- $row[nm_poli]</option>";
             }
             ?>
         </select>

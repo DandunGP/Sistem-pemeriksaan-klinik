@@ -24,7 +24,7 @@
     </div>
     <div class="form-group">
         <label for="username">username</label>
-        <select name="username" class="form-control">
+        <select name="username" class="form-control" required>
             <?php foreach($username as $user): ?>
                 <?php
                     $username = $user['username'];

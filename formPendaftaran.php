@@ -38,10 +38,10 @@ if(isset($_GET['norm'])){
         <label for="kode_dokter">Kode Dokter</label>
         <select name="kode_dokter" class="form-control">
             <?php
-            $query = "select * from dokter";
+            $query = "select poliklinik.*, dokter.* from dokter join poliklinik on poliklinik.kode_dokter=dokter.kode_dokter";
             $data = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($data)) {
-                echo "<option value='$row[kode_dokter]'>$row[kode_dokter]--$row[nama_dokter]</option>";
+                echo "<option value='$row[kode_dokter]'>$row[nama_dokter] -- $row[nm_poli]</option>";
             }
             ?>
         </select>

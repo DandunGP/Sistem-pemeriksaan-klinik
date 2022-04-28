@@ -6,18 +6,20 @@
         <tr>
             <th scope="col">Kode Poliklinik</th>
             <th scope="col">Nama Poliklinik</th>
+            <th scope="col">Dokter Poliklinik</th>
             <th scope="col">Keterangan</th>
         </tr>
     </thead>
     <tbody>
         <?php
-        $query = "select * from poliklinik";
+        $query = "select poliklinik.*, dokter.nama_dokter from poliklinik join dokter on poliklinik.kode_dokter=dokter.kode_dokter";
         $data = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($data)) {
         ?>
             <tr>
                 <td class="center"><?= $row['kd_poli'] ?></td>
                 <td><?= $row['nm_poli'] ?></td>
+                <td><?= $row['nama_dokter'] ?></td>
                 <td>
                     <a href="dashboard.php?tab=editPoli&id=<?= $row['kd_poli'] ?>" class="btn btn-success pl-3 py-0"><i class="fa-solid fa-pen pr-2"></i>Edit</a>
                     <a href="deletePoli.php?id=<?= $row['kd_poli'] ?>" class="btn btn-danger pl-3 py-0" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa-solid fa-trash pr-2"></i>Delete</a>

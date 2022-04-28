@@ -12,6 +12,20 @@ $kdpoli = getLastId($kdpoli, 'kd_poli');
         <label for="nama_poli">Nama Poliklinik</label>
         <input type="text" class="form-control" name="nama_poli" required>
     </div>
+    <div class="form-group">
+        <label for="username">Nama Dokter</label>
+        <select name="username" class="form-control">
+            <?php
+                $data_dokter = query("select * from dokter");
+                foreach ($data_dokter as $dokter){
+                    $cek = query("select * from poliklinik where kode_dokter ='{$dokter['kode_dokter']}'");
+                    if($cek == NULL){
+                        echo "<option value='$dokter[kode_dokter]'>$dokter[kode_dokter] -- $dokter[nama_dokter]</option>";
+                    }
+                }
+            ?>  
+        </select>
+    </div>
     <button type="submit" name="submit" class="btn btn-primary" style="width: 100px">Submit</button>
 </form>
 
