@@ -65,15 +65,15 @@ $noper = getLastId($noper, 'no_per');
         <input type="number" class="form-control" name="bb" maxlength="2" required>
     </div>
     <div class="form-group">
-        <label for="td">TD</label>
+        <label for="td">Tekanan Darah</label>
         <input type="number" class="form-control" name="td" maxlength="2" required>
     </div>
     <div class="form-group">
-        <label for="sh">SH</label>
+        <label for="sh">Suhu</label>
         <input type="number" class="form-control" name="sh" maxlength="2" required>
     </div>
     <div class="form-group">
-        <label for="nd">ND</label>
+        <label for="nd">Nadi</label>
         <input type="number" class="form-control" name="nd" maxlength="2" required>
     </div>
     <div class="form-group">
