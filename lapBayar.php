@@ -2,8 +2,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-        <th scope="col">NO Bayar</th>
-        <th scope="col">Nama Bayar</th>
+        <th scope="col">Tanggal</th>
+        <th scope="col">No Rekam Medis</th>
+        <th scope="col">Pasien</th>
+        <th scope="col">Nominal</th>
     </tr>
   </thead>
   <?php
@@ -12,13 +14,23 @@
     } else {
         $page = 0;
     }
-    $data_bayar = query("select * from pembayaran limit 10 offset $page")
+    $data_bayar = query("select pendaftaran.*, pasien.*, pembayaran.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar limit 10 offset $page")
   ?>
   <tbody>
     <?php foreach ($data_bayar as $bayar): ?>
     <tr>
-        <td><?= $bayar['kd_bayar'] ?></td>
-        <td><?= $bayar['nm_bayar'] ?></td>
+        <td><?= $bayar['tgl_reg'] ?></td>
+        <td><?= $bayar['norm'] ?></td>
+        <td><?= $bayar['nama'] ?></td>
+        <td>
+          <?php
+            if($bayar['kd_bayar']=="B001"){
+              echo $bayar['nm_bayar'];
+            } else {
+              echo rupiah($bayar['nominal']);
+            }
+          ?>
+        </td>
     </tr>
     <?php endforeach; ?>
   </tbody>

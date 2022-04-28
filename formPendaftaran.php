@@ -2,6 +2,9 @@
 <?php
 $noreg = query("select noreg from pendaftaran");
 $noreg = getLastId($noreg, 'noreg');
+if(isset($_GET['norm'])){
+    $norm = $_GET['norm'];
+}
 ?>
 <form action="" method="post">
     <div class="form-group">
@@ -19,6 +22,13 @@ $noreg = getLastId($noreg, 'noreg');
             $query = "select * from pasien";
             $data = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($data)) {
+                if(isset($norm)){
+                    if($row['norm'] == $norm){
+                        echo "<option value='$row[norm]' selected>$row[norm]--$row[nama]</option>";
+                    } else{
+                        echo "<option value='$row[norm]'>$row[norm]--$row[nama]</option>";
+                    }
+                }
                 echo "<option value='$row[norm]'>$row[norm]--$row[nama]</option>";
             }
             ?>
@@ -49,20 +59,8 @@ $noreg = getLastId($noreg, 'noreg');
         </select>
     </div>
     <div class="form-group">
-        <label for="nominal">No Registrasi</label>
+        <label for="nominal">Nominal</label>
         <input type="number" class="form-control" name="nominal" placeholder="ketik '0' Jika BPJS" required>
-    </div>
-    <div class="form-group">
-        <label for="kode_poli">Kode Poliklinik</label>
-        <select name="kode_poli" class="form-control">
-            <?php
-            $query = "select * from poliklinik";
-            $data = mysqli_query($conn, $query);
-            while ($row = mysqli_fetch_array($data)) {
-                echo "<option value='$row[kd_poli]'>$row[kd_poli] -- $row[nm_poli]</option>";
-            }
-            ?>
-        </select>
     </div>
     <button type="submit" name="submit" class="btn btn-primary" style="width: 100px">Submit</button>
 </form>

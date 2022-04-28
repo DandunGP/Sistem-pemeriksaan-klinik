@@ -52,12 +52,13 @@ if (isset($_POST['login'])) {
 <body class="bg-primary d-flex justify-content-center align-items-center">
     <div class="menu-login d-flex">
         <div class="login-logo bg-white p-3 d-flex flex-column justify-content-center align-items-center">
-            <i class="fa-solid fa-hospital" style="font-size:100px"></i>
-            <p class="mt-3 mb-0" style="font-size:25px">Klinik Pertama Kedua</p>
+            <img src="asset/logo-crop.png" width="150px">
+            <!-- <i class="fa-solid fa-hospital" style="font-size:100px"></i> -->
+            <p class="mt-3 mb-0 fw-bolder" style="font-size:25px">Klinik Pratama</p>
         </div>
         <div class="login-form bg-white text-center p-3 d-flex align-items-center">
             <form action="" method="post">
-                <h2 class="login-title">Welcome Back!</h2>
+                <h2 class="login-title">Selamat Datang</h2>
                 <?php if (isset($error)) : ?>
                     <p style="color:red; font-style:italic;">username atau password salah!</p>
                 <?php endif; ?>

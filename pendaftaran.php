@@ -15,7 +15,7 @@
     </thead>
     <tbody>
         <?php
-        $query = "select pendaftaran.*, pasien.*, dokter.*, poliklinik.*, pembayaran.* from pendaftaran join pasien on pasien.norm = pendaftaran.norm join dokter on dokter.kode_dokter = pendaftaran.kode_dokter join poliklinik on poliklinik.kd_poli = pendaftaran.kd_poli join pembayaran on pembayaran.kd_bayar = pendaftaran.kd_bayar";
+        $query = "select pendaftaran.*, pasien.*, dokter.*, poliklinik.*, pembayaran.* from pendaftaran join pasien on pasien.norm = pendaftaran.norm join dokter on dokter.kode_dokter = pendaftaran.kode_dokter join poliklinik on poliklinik.kd_poli = pendaftaran.kd_poli join pembayaran on pembayaran.kd_bayar = pendaftaran.kd_bayar order by noreg desc";
         $data = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($data)) {
         ?>
@@ -25,10 +25,10 @@
                 <td><?= $row['nama'] ?></td>
                 <td><?= $row['nama_dokter'] ?></td>
                 <td><?php 
-                if($jadwal['kd_bayar']=='B000'){
-                    echo rupiah($jadwal['nominal']);
+                if($row['kd_bayar']=='B000'){
+                    echo rupiah($row['nominal']);
                 } else {
-                    echo $jadwal['nm_bayar'];
+                    echo $row['nm_bayar'];
                 }
                 ?></td>
                 <td><?= $row['nm_poli'] ?></td>

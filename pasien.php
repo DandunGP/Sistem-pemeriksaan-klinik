@@ -31,9 +31,17 @@
       <td>
         <a href="dashboard.php?tab=editPasien&norm=<?= $pasien['norm'] ?>" class="btn btn-success pl-3 py-0"><i
             class="fa-solid fa-pen pr-2"></i>Edit</a>
-        <a href="dashboard.php?tab=deletePasien&norm=<?= $pasien['norm'] ?>" class="btn btn-danger pl-3 py-0"
-          onclick="return confirm('Are you sure you want to delete this item?');"><i
-            class="fa-solid fa-trash pr-2"></i>Delete</a>
+            <?php
+              $cekPasien = query("select * from pendaftaran where norm='{$pasien['norm']}'");
+
+              if($cekPasien == null):
+            ?>
+        <a href="dashboard.php?tab=controlPasien&norm=<?= $pasien['norm'] ?>" class="btn btn-danger pl-3 py-0"><i
+            class="fa-solid fa-heart-circle-plus pr-2"></i>Kontrol</a>
+            <?php else: ?>
+              <a href="dashboard.php?tab=formPendaftaran&norm=<?= $pasien['norm'] ?>" class="btn btn-info pl-3 py-0"><i
+            class="fa-solid fa-calendar-plus pr-2"></i>Daftar</a>
+            <?php endif; ?>
       </td>
     </tr>
     <?php endforeach; ?>

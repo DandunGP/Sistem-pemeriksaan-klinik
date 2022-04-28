@@ -2,8 +2,11 @@
 <table class="table table-striped">
   <thead>
     <tr>
-        <th scope="col">Kode Poliklinik</th>
-        <th scope="col">Nama Poliklinik</th>
+        <th scope="col">Tanggal</th>
+        <th scope="col">No Rekam Medis</th>
+        <th scope="col">Pasien</th>
+        <th scope="col">Usia</th>
+        <th scope="col">Poli</th>
     </tr>
   </thead>
   <?php
@@ -12,12 +15,15 @@
     } else {
         $page = 0;
     }
-    $data_poliklinik = query("select * from poliklinik limit 10 offset $page")
+    $data_poliklinik = query("select pendaftaran.*, pasien.*, poliklinik.*, round(DATEDIFF(CURRENT_DATE, STR_TO_DATE(pasien.tgl_lahir, '%Y-%m-%d'))/365) as 'umur' from pendaftaran join pasien on pasien.norm=pendaftaran.norm join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli limit 10 offset $page")
   ?>
   <tbody>
     <?php foreach ($data_poliklinik as $poliklinik): ?>
     <tr>
-      <td><?= $poliklinik['kd_poli'] ?></td>
+      <td><?= $poliklinik['tgl_reg'] ?></td>
+      <td><?= $poliklinik['norm'] ?></td>
+      <td><?= $poliklinik['nama'] ?></td>
+      <td><?= $poliklinik['umur'] ?></td>
       <td><?= $poliklinik['nm_poli'] ?></td>
     </tr>
     <?php endforeach; ?>

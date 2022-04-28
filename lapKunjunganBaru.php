@@ -45,7 +45,7 @@
         $pasienBaru = "";
         if($arrayBaru != null){
             foreach ($arrayBaru as $baru){
-                $pasienBaru = "'$pasienBaru$baru',";
+                $pasienBaru = "$pasienBaru'$baru',";
             }
             $pasienBaru = substr($pasienBaru, 0, strlen($pasienBaru)-1);
             $data_baru = query("select pendaftaran.*, pasien.*, dokter.*, pembayaran.*, poliklinik.* from pendaftaran join pasien on pasien.norm=pendaftaran.norm join dokter on dokter.kode_dokter=pendaftaran.kode_dokter join pembayaran on pembayaran.kd_bayar=pendaftaran.kd_bayar join poliklinik on poliklinik.kd_poli=pendaftaran.kd_poli where pendaftaran.norm in ($pasienBaru)");
@@ -64,10 +64,10 @@
         <td><?= $baru['nama'] ?></td>
         <td><?= $baru['nama_dokter'] ?></td>
         <td><?php 
-            if($jadwal['kd_bayar']=='B000'){
-                echo rupiah($jadwal['nominal']);
+            if($baru['kd_bayar']=='B000'){
+                echo rupiah($baru['nominal']);
             } else {
-                echo $jadwal['nm_bayar'];
+                echo $baru['nm_bayar'];
             }
         ?></td>
         <td><?= $baru['nm_poli'] ?></td>

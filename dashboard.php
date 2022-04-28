@@ -63,28 +63,6 @@ if (!$_SESSION['status_login']) {
             </div>
             <div class="nav-list py-2">
                 <div class="nav-item position-relative d-flex align-items-center pl-1">
-                    <i class="fa-solid fa-user-doctor" style="font-size:15px; color: white"></i>
-                    <p class="text-white fw-bold m-0 pl-3">Dokter</p>
-                    <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
-                </div>
-                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
-                    <a href="dashboard.php?tab=formDokter" class="menu-dropdown d-block">Daftar</a>
-                    <a href="dashboard.php?tab=dokter" class="menu-dropdown d-block">Cek</a>
-                </div>
-            </div>
-            <div class="nav-list py-2">
-                <div class="nav-item position-relative d-flex align-items-center pl-1">
-                    <i class="fa-solid fa-hospital-user" style="font-size:15px; color: white"></i>
-                    <p class="text-white fw-bold m-0 pl-3">Poliklinik</p>
-                    <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
-                </div>
-                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
-                    <a href="dashboard.php?tab=formPoli" class="menu-dropdown d-block">Daftar</a>
-                    <a href="dashboard.php?tab=poliklinik" class="menu-dropdown d-block">Cek</a>
-                </div>
-            </div>
-            <div class="nav-list py-2">
-                <div class="nav-item position-relative d-flex align-items-center pl-1">
                     <i class="fa-solid fa-address-card" style="font-size:15px; color: white"></i>
                     <p class="text-white fw-bold m-0 pl-3">Pendaftaran</p>
                     <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
@@ -103,6 +81,28 @@ if (!$_SESSION['status_login']) {
                 <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
                     <a href="dashboard.php?tab=formPemeriksaan" class="menu-dropdown d-block">Daftar</a>
                     <a href="dashboard.php?tab=pemeriksaan" class="menu-dropdown d-block">Cek</a>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-user-doctor" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Dokter</p>
+                    <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
+                </div>
+                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
+                    <a href="dashboard.php?tab=formDokter" class="menu-dropdown d-block">Daftar</a>
+                    <a href="dashboard.php?tab=dokter" class="menu-dropdown d-block">Cek</a>
+                </div>
+            </div>
+            <div class="nav-list py-2">
+                <div class="nav-item position-relative d-flex align-items-center pl-1">
+                    <i class="fa-solid fa-hospital-user" style="font-size:15px; color: white"></i>
+                    <p class="text-white fw-bold m-0 pl-3">Poliklinik</p>
+                    <i class="fa-solid fa-angle-down ml-auto mr-1" style="color: white"></i>
+                </div>
+                <div class="nav-item-dropdown bg-white px-3 py-2 mt-2 hide">
+                    <a href="dashboard.php?tab=formPoli" class="menu-dropdown d-block">Daftar</a>
+                    <a href="dashboard.php?tab=poliklinik" class="menu-dropdown d-block">Cek</a>
                 </div>
             </div>
             <div class="nav-list py-2">
@@ -210,7 +210,8 @@ if (!$_SESSION['status_login']) {
         </div>
     </section>
     <section id="content" class="py-5 px-5 position-relative">
-        <div class="content-logo mb-3 text-center border border-dark border-top-0 border-left-0 border-right-0">
+        <div class="content-logo mb-3 text-center border border-dark border-top-0 border-left-0 border-right-0 position-relative">
+            <img src="asset/logo-crop.png" width="150" class="logo-header position-absolute" style="left: 50px;">
             <h1>Klinik Pratama</h1>
             <h1>dr. ARIEF WAHYU SOEKARNO</h1>
             <p>Jl. Ciu No 2, Telukan, Grogol, Sukoharjo, Telp. 082225155873</p>

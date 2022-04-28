@@ -138,7 +138,7 @@ function tambahPendaftaran($data)
     $kodeDok = htmlspecialchars($data['kode_dokter']);
     $kdbayar = htmlspecialchars($data['kode_bayar']);
     $nominal = htmlspecialchars($data['nominal']);
-    $kdpoli = htmlspecialchars($data['kode_poli']);
+    $kdpoli = query("select kd_poli from poliklinik where kode_dokter='$kodeDok'")[0]['kd_poli'];
 
     $query_insert = "insert into pendaftaran values ('$noreg', '$tgl', '$norm', '$kodeDok', '$kdbayar', '$nominal', '$kdpoli')";
     mysqli_query($conn, $query_insert);
@@ -333,9 +333,10 @@ function editPendaftaran($data)
     $norm = htmlspecialchars($data['norm']);
     $kodeDok = htmlspecialchars($data['kode_dokter']);
     $kdbayar = htmlspecialchars($data['kode_bayar']);
-    $kdpoli = htmlspecialchars($data['kode_poli']);
+    $kdpoli = query("select kd_poli from poliklinik where kode_dokter='$kodeDok'")[0]['kd_poli'];
+    $nominal = htmlspecialchars($data['nominal']);
 
-    $query_edit = "update pendaftaran set noreg = '$noreg', tgl_reg = '$tgl', norm = '$norm', kode_dokter = '$kodeDok', kd_bayar = '$kdbayar', kd_poli = '$kdpoli' where noreg = '$noreg' ";
+    $query_edit = "update pendaftaran set noreg = '$noreg', tgl_reg = '$tgl', norm = '$norm', kode_dokter = '$kodeDok', kd_bayar = '$kdbayar', kd_poli = '$kdpoli', nominal='$nominal' where noreg = '$noreg' ";
     mysqli_query($conn, $query_edit);
 
     return mysqli_affected_rows($conn);

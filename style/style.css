@@ -50,7 +50,7 @@
 }
 
 #content::-webkit-scrollbar {
-    display: none;
+    /* display: none; */
 }
 
 .menu-content{

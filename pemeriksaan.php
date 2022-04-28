@@ -3,9 +3,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">NO Pemeriksaan</th>
       <th scope="col">Tanggal Pemeriksaan</th>
-      <th scope="col">No Register</th>
       <th scope="col">Pasien</th>
       <th scope="col">Dokter</th>
       <th scope="col">Anamnesa</th>
@@ -26,9 +24,7 @@
     while ($row = mysqli_fetch_array($data)) {
     ?>
       <tr>
-        <td class="center"><?= $row['no_per'] ?></td>
         <td><?= $row['tgl_per'] ?></td>
-        <td><?= $row['noreg'] ?></td>
         <td><?= $row['nama'] ?></td>
         <td><?= $row['nama_dokter'] ?></td>
         <td><?= $row['anamnesa'] ?></td>

@@ -32,52 +32,42 @@ $pend = query("select * from pendaftaran where noreg= '$id' ")[0];
         </select>
     </div>
     <div class="form-group">
-        <label for="kode_dokter">Kode Dokter</label>
+        <label for="kode_dokter">Dokter</label>
         <select name="kode_dokter" class="form-control">
             <?php
-            $query = "select * from dokter";
+            $query = "select dokter.*, poliklinik.* from dokter join poliklinik on poliklinik.kode_dokter=dokter.kode_dokter";
             $data = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($data)) {
                 if ($row['kode_dokter'] == $pend['kode_dokter']) {
-                    echo "<option value='$row[kode_dokter]' selected>$row[kode_dokter]</option>";
+                    echo "<option value='$row[kode_dokter]' selected>$row[nama_dokter] -- $row[nm_poli]</option>";
                 } else {
-                    echo "<option value='$row[kode_dokter]'>$row[kode_dokter]</option>";
+                    echo "<option value='$row[kode_dokter]'>$row[nama_dokter] -- $row[nm_poli]</option>";
                 }
             }
             ?>
         </select>
     </div>
     <div class="form-group">
-        <label for="kode_bayar">Kode Bayar</label>
+        <label for="kode_bayar">Cara Bayar</label>
         <select name="kode_bayar" class="form-control">
             <?php
             $query = "select * from pembayaran";
             $data = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($data)) {
                 if ($row['kd_bayar'] == $pend['kd_bayar']) {
-                    echo "<option value='$row[kd_bayar]' selected>$row[kd_bayar]</option>";
+                    echo "<option value='$row[kd_bayar]' selected>$row[nm_bayar]</option>";
                 } else {
-                    echo "<option value='$row[kd_bayar]'>$row[kd_bayar]</option>";
+                    echo "<option value='$row[kd_bayar]'>$row[nm_bayar]</option>";
                 }
             }
             ?>
         </select>
     </div>
     <div class="form-group">
-        <label for="kode_poli">Kode Poliklinik</label>
-        <select name="kode_poli" class="form-control">
-            <?php
-            $query = "select * from poliklinik";
-            $data = mysqli_query($conn, $query);
-            while ($row = mysqli_fetch_array($data)) {
-                if ($row['kd_poli'] == $pend['kd_poli']) {
-                    echo "<option value='$row[kd_poli]' selected>$row[kd_poli]</option>";
-                } else {
-                    echo "<option value='$row[kd_poli]'>$row[kd_poli]</option>";
-                }
-            }
-            ?>
-        </select>
+        <label for="nominal">Nominal</label>
+        <input type="number" class="form-control" name="nominal" placeholder="ketik '0' Jika BPJS"
+        value="<?= $pend['nominal'] ?>"
+        required>
     </div>
     <button type="submit" name="submit" class="btn btn-primary" style="width: 100px">Submit</button>
 </form>
