@@ -1,4 +1,10 @@
 <h1>Tabel Pasien</h1>
+<form class="float-right" method="post" action="">
+  <label for="search">Kata Kunci</label>
+  <input type="text" name="search" placeholder="Type 'NORM' or 'Nama'" class="px-2">
+  <br>
+  <input type="submit" name="cari" class="btn btn-primary w-100" value="Cari">
+</form>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -9,6 +15,7 @@
       <th scope="col">Agama</th>
       <th scope="col">Alamat</th>
       <th scope="col">Telepon</th>
+      <th scope="col">Cetak</th>
     </tr>
   </thead>
   <?php
@@ -17,7 +24,16 @@
     } else {
         $page = 0;
     }
-    $data_pasien = query("select * from pasien limit 10 offset $page")
+    if(isset($_POST['cari'])){
+      $kunci = $_POST['search'];
+      if($kunci == ''){
+        $data_pasien = query("select * from pasien limit 10 offset $page");
+      } else {
+        $data_pasien = query("select * from pasien where norm like '%$kunci%' or nama like '%$kunci%'");
+      }
+    } else {
+      $data_pasien = query("select * from pasien limit 10 offset $page");
+    }
   ?>
   <tbody>
     <?php foreach ($data_pasien as $pasien): ?>
@@ -29,6 +45,13 @@
       <td><?= $pasien['agama'] ?></td>
       <td><?= $pasien['alamat'] ?></td>
       <td><?= $pasien['telepon'] ?></td>
+      <td>
+        <a href="print-data.php?norm=<?= $pasien['norm']?>" target="_blank"
+        class="btn btn-warning text-white">
+        <i class="fa-solid fa-print fw-bold"></i>
+          Cetak
+        </a>
+      </td>
     </tr>
     <?php endforeach; ?>
   </tbody>

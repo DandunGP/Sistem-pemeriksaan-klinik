@@ -23,13 +23,17 @@ if (!$_SESSION['status_login']) {
 </head>
 
 <body class="d-flex">
-    <section id="navbar" class="bg-primary bg-opacity-25 p-3">
+    <section id="navbar" class="bg-info bg-opacity-25 p-3">
         <a href="dashboard.php">
             <div class="nav-menu d-flex align-items-center justify-content-center pb-3">
                 <div class="logo-image d-flex align-items-center justify-content-center" style="width:40px; height:40px;">
-                    <i class="fa-solid fa-hospital" style="font-size:30px; color: white"></i>
+                    <!-- <i class="fa-solid fa-hospital" style="font-size:30px; color: white"></i> -->
+                    <img src="asset/logo-crop.png" width="50" class="logo-header position-absolute" style="left: 60px;">
                 </div>
+                <div>
                 <p class="text-white fw-bold m-0 pl-3" style="font-size:20px">Klinik Pratama</p>
+                <p class="text-white fw-bold m-0 pl-3" style="font-size:12px">dr. Arief Wahyu Soekarno</p>
+                </div>
             </div>
         </a>
         <div class="nav-menu">
