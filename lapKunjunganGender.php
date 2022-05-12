@@ -1,7 +1,7 @@
 <h1>Laporan Per Gender</h1>
     <form id="formTanggal" action="" method="post" class="float-right">
     <div class="">
-        <label for="gender">Umur</label>
+        <label for="gender">Gender</label>
         <select name="gender" class="ml-3">
             <option class="submitGender" value="all">Semua</option>
             <option class="submitGender" value="Laki-laki">Laki-Laki</option>

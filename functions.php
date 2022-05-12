@@ -195,7 +195,7 @@ function hapusDokter($id)
 {
     global $conn;
 
-    $query_delete = "delete dokter pasien where kode_dokter='$id'";
+    $query_delete = "delete from dokter where kode_dokter='$id'";
     $hasil = mysqli_query($conn, $query_delete);
 
     return $hasil;
